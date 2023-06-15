@@ -31,12 +31,12 @@ const CarDetails = styled.View`
   justify-content: center;
 `;
 
-export const Car = ({ title, name, imageUrl, id }: CarProps): JSX.Element => {
+export const Car = ({ title, name, imgUrl, id }: CarProps): JSX.Element => {
   return (
     <CarView>
       <CarImage
         source={{
-          uri: imageUrl,
+          uri: imgUrl,
         }}
       />
       <CarDetails>

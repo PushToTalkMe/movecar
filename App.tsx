@@ -1,16 +1,27 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { StatusBar } from "react-native";
+import { View } from "react-native";
 import { Car } from "./src/components/car/car";
+import { Provider } from "react-redux";
+import { store } from "./src/store/index";
+import { useTypedSelector } from "./src/hooks/use_typed_selector";
 
 export default function App() {
+  const listCars = useTypedSelector((state) => state.listCarsReducer);
+
   return (
-    <View>
-      <Car
-        title="Лада Калина"
-        name="Иван Иванов"
-        id="435232"
-        imageUrl="https://rg.ru/uploads/images/176/28/49/autowp.ru_vaz_21045__zhiguli__1.jpg"
-      />
-    </View>
+    <Provider store={store}>
+      <View>
+        {listCars.listCars.map((car) => (
+          <Car
+            title={car.title}
+            name={car.name}
+            id={car.id}
+            key={car.id}
+            imgUrl={car.imgUrl}
+          />
+        ))}
+        <StatusBar backgroundColor="white" barStyle="dark-content" />
+      </View>
+    </Provider>
   );
 }
