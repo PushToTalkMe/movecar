@@ -1,6 +1,22 @@
 import styled from "styled-components/native";
 import { CarProps } from "./car.props";
 
+export const Car = ({ name, imgUrl, id }: CarProps): JSX.Element => {
+  return (
+    <CarView>
+      <CarImage
+        source={{
+          uri: imgUrl,
+        }}
+      />
+      <CarDetails>
+        <CarTitle>ТС #{id}</CarTitle>
+        <CarOwner>{name}</CarOwner>
+      </CarDetails>
+    </CarView>
+  );
+};
+
 const CarView = styled.View`
   flex-direction: row;
   padding: 15px;
@@ -30,21 +46,3 @@ const CarOwner = styled.Text`
 const CarDetails = styled.View`
   justify-content: center;
 `;
-
-export const Car = ({ title, name, imgUrl, id }: CarProps): JSX.Element => {
-  return (
-    <CarView>
-      <CarImage
-        source={{
-          uri: imgUrl,
-        }}
-      />
-      <CarDetails>
-        <CarTitle>
-          {title} #{id}
-        </CarTitle>
-        <CarOwner>{name}</CarOwner>
-      </CarDetails>
-    </CarView>
-  );
-};

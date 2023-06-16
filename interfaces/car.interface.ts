@@ -4,4 +4,5 @@ export interface ICar {
   name: string;
   category: string;
   imgUrl: string;
+  number: string;
 }
