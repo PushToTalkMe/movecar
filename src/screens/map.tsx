@@ -1,5 +1,4 @@
-import { StyleSheet, Image } from "react-native";
-import styled from "styled-components/native";
+import { StyleSheet } from "react-native";
 import { HomeScreenNavigationProp } from "./types";
 import MapView from "react-native-maps";
 import { Marker, Callout } from "react-native-maps";
@@ -7,19 +6,10 @@ import { PROVIDER_GOOGLE } from "react-native-maps";
 import { useTypedSelector } from "../hooks/use_typed_selector";
 import { IListCars } from "../../interfaces/list_cars.interface";
 import { Car } from "../components/car/car";
+import { getIcon } from "../../helpers/getIcon";
 
 export default function Map({ navigation }: HomeScreenNavigationProp) {
   const cars: IListCars = useTypedSelector((state) => state.listCarsReducer);
-
-  const getIcon = (category: string) => {
-    if (category === "Пассажирский") {
-      return require("../../assets/car_sedan.png");
-    } else if (category === "Грузовой") {
-      return require("../../assets/car_truck.png");
-    } else {
-      return require("../../assets/car_camping.png");
-    }
-  };
 
   return (
     <MapView
@@ -50,6 +40,7 @@ export default function Map({ navigation }: HomeScreenNavigationProp) {
                   imgUrl: item.imgUrl,
                   category: item.category,
                   number: item.number,
+                  coordinates: item.coordinates,
                 })
               }
             >

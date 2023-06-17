@@ -9,6 +9,10 @@ export type StackNavigatorParamList = {
     category: string;
     number: string;
     id: string;
+    coordinates: {
+      latitude: number;
+      longitude: number;
+    };
   };
 };
 

@@ -20,6 +20,7 @@ export default function Home({ navigation }: HomeScreenNavigationProp) {
                 imgUrl: item.imgUrl,
                 category: item.category,
                 number: item.number,
+                coordinates: item.coordinates,
               })
             }
           >
