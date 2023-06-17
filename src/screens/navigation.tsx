@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StackNavigatorParamList, BottomNavigatorParamList } from "./types";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useTypedSelector } from "../hooks/use_typed_selector";
 
 // Screens
 import Home from "./home";
@@ -21,6 +22,7 @@ const Stack = createNativeStackNavigator<StackNavigatorParamList>();
 const Tab = createBottomTabNavigator<BottomNavigatorParamList>();
 
 export const Navigation = () => {
+  const ln = useTypedSelector((state) => state.settingsReducer.language);
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -32,7 +34,7 @@ export const Navigation = () => {
         <Stack.Screen
           name={FullCarName}
           component={FullCar}
-          options={{ title: "ТС" }}
+          options={ln === "ru" ? { title: "ТС" } : { title: "Vehicle" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -40,6 +42,8 @@ export const Navigation = () => {
 };
 
 const BottomNav = () => {
+  const ln = useTypedSelector((state) => state.settingsReducer.language);
+
   return (
     <Tab.Navigator
       initialRouteName={homeName}
@@ -60,9 +64,23 @@ const BottomNav = () => {
         },
       })}
     >
-      <Tab.Screen name={homeName} component={Home} />
-      <Tab.Screen name={mapName} component={Map} />
-      <Tab.Screen name={settingsName} component={Settings} />
+      <Tab.Screen
+        name={homeName}
+        component={Home}
+        options={
+          ln === "ru" ? { title: "Список ТС" } : { title: "List of vehicles" }
+        }
+      />
+      <Tab.Screen
+        name={mapName}
+        component={Map}
+        options={ln === "ru" ? { title: "Карта" } : { title: "Map" }}
+      />
+      <Tab.Screen
+        name={settingsName}
+        component={Settings}
+        options={ln === "ru" ? { title: "Настройки" } : { title: "Settings" }}
+      />
     </Tab.Navigator>
   );
 };

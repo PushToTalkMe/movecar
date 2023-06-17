@@ -1,14 +1,20 @@
-import { FlatList, TouchableOpacity } from "react-native";
-import { View } from "react-native";
+import {
+  FlatList,
+  TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
+} from "react-native";
 import { Car } from "../components/car/car";
 import { useTypedSelector } from "../hooks/use_typed_selector";
 import { IListCars } from "../../interfaces/list_cars.interface";
 import { HomeScreenNavigationProp } from "./types";
+import { Sort } from "../components/sort/sort";
 
 export default function Home({ navigation }: HomeScreenNavigationProp) {
   const cars: IListCars = useTypedSelector((state) => state.listCarsReducer);
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
+      <Sort />
       <FlatList
         data={cars.currentCars}
         renderItem={({ item }) => (
@@ -33,6 +39,12 @@ export default function Home({ navigation }: HomeScreenNavigationProp) {
           </TouchableOpacity>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

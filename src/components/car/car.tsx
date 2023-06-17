@@ -1,7 +1,9 @@
 import styled from "styled-components/native";
 import { CarProps } from "./car.props";
+import { useTypedSelector } from "../../hooks/use_typed_selector";
 
 export const Car = ({ name, imgUrl, id, category }: CarProps): JSX.Element => {
+  const ln = useTypedSelector((state) => state.settingsReducer.language);
   return (
     <CarView>
       {imgUrl ? (
@@ -12,7 +14,11 @@ export const Car = ({ name, imgUrl, id, category }: CarProps): JSX.Element => {
         />
       ) : null}
       <CarDetails>
-        <CarTitle>ТС #{id}</CarTitle>
+        {ln === "ru" ? (
+          <CarTitle>ТС #{id}</CarTitle>
+        ) : (
+          <CarTitle>Vehicle #{id}</CarTitle>
+        )}
         <CarCategory>{category}</CarCategory>
         <CarOwner>{name}</CarOwner>
       </CarDetails>

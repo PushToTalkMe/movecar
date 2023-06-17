@@ -1,18 +1,21 @@
-import cars from "../../data/data_list_cars.json";
+import carsRu from "../../data/data_list_cars_ru.json";
+import carsEn from "../../data/data_list_cars_en.json";
 import { IListCars } from "../../../interfaces/list_cars.interface";
+import { ICar } from "../../../interfaces/car.interface";
 
 const FILTER_CATEGORY = "FILTER_CATEGORY";
-const ADD_CATEGORY = "FILTER_CATEGORY";
+const ADD_CATEGORY = "ADD_CATEGORY";
+const CHANGE_DATA = "CHANGE_DATA";
 
 const initialState = <IListCars>{
-  listCars: cars,
-  currentCars: cars,
-  currentCategory: "",
+  listCars: carsRu,
+  currentCars: carsRu,
+  currentCategory: "Все",
   filterCategory() {
     return {
       ...this,
-      currentCars: this.listCars.filter((film: any) =>
-        film.category.includes(this.currentCategory)
+      currentCars: this.listCars.filter((car: ICar) =>
+        car.category.includes(this.currentCategory)
       ),
     };
   },
@@ -27,8 +30,26 @@ export const listCarsReducer = (
       return (state = Object.assign({}, state, {
         currentCategory: action.payload,
       }));
+    case CHANGE_DATA:
+      if (action.payload === "ru") {
+        return (state = Object.assign({}, state, {
+          listCars: carsRu,
+          currentCars: carsRu,
+        }));
+      } else {
+        return (state = Object.assign({}, state, {
+          listCars: carsEn,
+          currentCars: carsEn,
+        }));
+      }
     case FILTER_CATEGORY:
-      return state.filterCategory();
+      if (state.currentCategory === "Все" || state.currentCategory === "All") {
+        return (state = Object.assign({}, state, {
+          currentCars: state.listCars,
+        }));
+      } else {
+        return state.filterCategory();
+      }
     default:
       return state;
   }
