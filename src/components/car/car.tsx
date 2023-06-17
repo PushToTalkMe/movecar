@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { CarProps } from "./car.props";
 
-export const Car = ({ name, imgUrl, id }: CarProps): JSX.Element => {
+export const Car = ({ name, imgUrl, id, category }: CarProps): JSX.Element => {
   return (
     <CarView>
       <CarImage
@@ -11,6 +11,7 @@ export const Car = ({ name, imgUrl, id }: CarProps): JSX.Element => {
       />
       <CarDetails>
         <CarTitle>ТС #{id}</CarTitle>
+        <CarCategory>{category}</CarCategory>
         <CarOwner>{name}</CarOwner>
       </CarDetails>
     </CarView>
@@ -40,6 +41,12 @@ const CarTitle = styled.Text`
 const CarOwner = styled.Text`
   font-size: 12px;
   color: rgba(0, 0, 0, 0.4);
+  margin-top: 2px;
+`;
+
+const CarCategory = styled.Text`
+  font-size: 14px;
+  font-weight: 400;
   margin-top: 2px;
 `;
 

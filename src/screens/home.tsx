@@ -3,13 +3,14 @@ import { View } from "react-native";
 import { Car } from "../components/car/car";
 import { useTypedSelector } from "../hooks/use_typed_selector";
 import { IListCars } from "../../interfaces/list_cars.interface";
+import { HomeScreenNavigationProp } from "./types";
 
-export default function Home({ navigation }) {
+export default function Home({ navigation }: HomeScreenNavigationProp) {
   const cars: IListCars = useTypedSelector((state) => state.listCarsReducer);
   return (
     <View>
       <FlatList
-        data={cars.listCars}
+        data={cars.currentCars}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() =>
@@ -22,7 +23,12 @@ export default function Home({ navigation }) {
               })
             }
           >
-            <Car name={item.name} id={item.id} imgUrl={item.imgUrl} />
+            <Car
+              name={item.name}
+              id={item.id}
+              imgUrl={item.imgUrl}
+              category={item.category}
+            />
           </TouchableOpacity>
         )}
       />

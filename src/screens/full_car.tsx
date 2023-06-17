@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { View } from "react-native";
 import styled from "styled-components/native";
+import { FullCarScreenNavigationProp } from "./types";
 
 const CarImage = styled.Image`
   width: 100%;
@@ -14,7 +15,7 @@ const CarText = styled.Text`
   line-height: 24px;
 `;
 
-export const FullCar = ({ route, navigation }) => {
+export const FullCar = ({ route, navigation }: FullCarScreenNavigationProp) => {
   const { name, imgUrl, category, number, id } = route.params;
 
   useEffect(() => {

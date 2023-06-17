@@ -5,4 +5,5 @@ export interface CarProps
   name: string;
   imgUrl: string;
   id: string;
+  category: string;
 }

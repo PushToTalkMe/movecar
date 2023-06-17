@@ -4,5 +4,5 @@ export interface IListCars {
   listCars: ICar[];
   currentCars: ICar[];
   currentCategory: string;
-  filterCategory: () => void;
+  filterCategory: () => IListCars;
 }

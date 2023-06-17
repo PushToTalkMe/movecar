@@ -6,7 +6,7 @@ const ADD_CATEGORY = "FILTER_CATEGORY";
 
 const initialState = <IListCars>{
   listCars: cars,
-  currentCars: [],
+  currentCars: cars,
   currentCategory: "",
   filterCategory() {
     return {

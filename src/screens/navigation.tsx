@@ -1,9 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { StackNavigatorParamList } from "./types";
 import Home from "./home";
 import { FullCar } from "./full_car";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<StackNavigatorParamList>();
 
 export const Navigation = () => {
   return (
