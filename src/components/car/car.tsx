@@ -4,11 +4,13 @@ import { CarProps } from "./car.props";
 export const Car = ({ name, imgUrl, id, category }: CarProps): JSX.Element => {
   return (
     <CarView>
-      <CarImage
-        source={{
-          uri: imgUrl,
-        }}
-      />
+      {imgUrl ? (
+        <CarImage
+          source={{
+            uri: imgUrl,
+          }}
+        />
+      ) : null}
       <CarDetails>
         <CarTitle>ТС #{id}</CarTitle>
         <CarCategory>{category}</CarCategory>

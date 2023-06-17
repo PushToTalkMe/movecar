@@ -1,8 +1,8 @@
-import type { RouteProp } from "@react-navigation/native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { BottomTabBarButtonProps } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
 
 export type StackNavigatorParamList = {
-  Home: undefined;
+  BottomNav: undefined;
   FullCar: {
     name: string;
     imgUrl: string;
@@ -12,9 +12,15 @@ export type StackNavigatorParamList = {
   };
 };
 
+export type BottomNavigatorParamList = {
+  Home: undefined;
+  Map: undefined;
+  Settings: undefined;
+};
+
 export type HomeScreenNavigationProp = NativeStackScreenProps<
   StackNavigatorParamList,
-  "Home"
+  "BottomNav"
 >;
 
 export type FullCarScreenNavigationProp = NativeStackScreenProps<
