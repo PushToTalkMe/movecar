@@ -1,3 +1,5 @@
+//Reducer для настройки
+
 import { ISettings } from "../../../interfaces/settings.interface";
 
 const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";

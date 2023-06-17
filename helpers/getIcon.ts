@@ -1,3 +1,5 @@
+//Функция, возвращающая значок в соответствии с типом ТС
+
 export const getIcon = (category: string) => {
   if (category === "Пассажирский" || category === "Passenger") {
     return require("../assets/car_sedan.png");

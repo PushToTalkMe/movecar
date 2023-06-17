@@ -1,3 +1,5 @@
+//Интерфейс для компонента списка ТС
+
 import { HTMLAttributes, DetailedHTMLProps } from "react";
 
 export interface CarProps

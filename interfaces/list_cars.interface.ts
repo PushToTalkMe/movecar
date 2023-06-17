@@ -1,3 +1,5 @@
+//Интерфейс для Redux, list_cars_reducer
+
 import { ICar } from "./car.interface";
 
 export interface IListCars {

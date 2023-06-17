@@ -1,3 +1,5 @@
+//Reducer для списка ТС
+
 import carsRu from "../../data/data_list_cars_ru.json";
 import carsEn from "../../data/data_list_cars_en.json";
 import { IListCars } from "../../../interfaces/list_cars.interface";

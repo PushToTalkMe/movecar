@@ -1,3 +1,5 @@
+//Экран ТС с подробной информацией
+
 import { useEffect } from "react";
 import { View, StyleSheet, Button, Linking } from "react-native";
 import styled from "styled-components/native";

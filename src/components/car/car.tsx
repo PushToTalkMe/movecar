@@ -1,3 +1,5 @@
+//Компонент списка ТС, отображаемый в списке и на карте, при нажатии на значок
+
 import styled from "styled-components/native";
 import { CarProps } from "./car.props";
 import { useTypedSelector } from "../../hooks/use_typed_selector";

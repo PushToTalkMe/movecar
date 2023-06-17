@@ -1,3 +1,5 @@
+//Компонент сортировки по категориям ТС
+
 import React, { useState } from "react";
 import { Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";

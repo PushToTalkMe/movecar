@@ -1,3 +1,5 @@
+//Экран карты с отображением ТС по категориям
+
 import { StyleSheet } from "react-native";
 import { HomeScreenNavigationProp } from "./types";
 import MapView from "react-native-maps";

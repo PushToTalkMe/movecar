@@ -1,3 +1,5 @@
+//Интерфейс для ТС
+
 export interface ICar {
   id: string;
   title: string;

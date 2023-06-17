@@ -1,11 +1,11 @@
+//Экран настройки, включающий в себя смену языка
+
 import { useState } from "react";
 import { View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import { HomeScreenNavigationProp } from "./types";
-import { useTypedSelector } from "../hooks/use_typed_selector";
 import { useDispatch } from "react-redux";
 
-export default function Settings({ navigation }: HomeScreenNavigationProp) {
+export default function Settings() {
   const [selectedValue, setSelectedValue] = useState("ru");
   const dispatch = useDispatch();
   return (
